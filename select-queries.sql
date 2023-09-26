@@ -66,3 +66,35 @@ WHERE name = 'Emmanuel Ovi';
 SELECT *
 FROM students
 WHERE name LIKE 'K%';
+
+SELECT *
+FROM students
+WHERE age LIKE '2_';
+
+SELECT *
+FROM students
+WHERE name LIKE '%O_i';
+
+SELECT *
+FROM students
+WHERE admitted_at > '2015-09-01' AND grade > 3.1;
+
+SELECT *
+FROM students
+WHERE age > 20 AND grade < 3.9;
+
+SELECT *
+FROM students
+WHERE name LIKE 'M%' OR grade > 3.1;
+
+SELECT *
+FROM students
+WHERE age > 20 OR grade > 3.1 OR admitted_at > '2017-09-01';
+
+SELECT *
+FROM students
+WHERE NOT grade >= 3.8;
+
+SELECT *
+FROM students
+WHERE NOT grade >= 3.8 AND NOT age >= 25;
