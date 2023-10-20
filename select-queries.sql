@@ -65,6 +65,14 @@ WHERE name = 'Emmanuel Ovi';
 
 SELECT *
 FROM students
+WHERE name LIKE '%M%';
+
+SELECT *
+FROM students
+WHERE name LIKE '%Musa';
+
+SELECT *
+FROM students
 WHERE name LIKE 'K%';
 
 SELECT *
@@ -98,3 +106,81 @@ WHERE NOT grade >= 3.8;
 SELECT *
 FROM students
 WHERE NOT grade >= 3.8 AND NOT age >= 25;
+
+-- Update grade column with a NULL value
+UPDATE students
+SET grade = NULL
+WHERE grade = 0.0;
+
+SELECT *
+FROM students
+WHERE grade IS NULL;
+
+SELECT * FROM students;
+
+SELECT NOW();
+
+SELECT CURDATE();
+
+SELECT TIME(NOW());
+
+SELECT EXTRACT(HOUR FROM entry_date) AS year
+FROM students;
+
+SELECT COUNT(name) AS num_of_rows
+FROM students;
+
+SELECT DISTINCT department AS count_dept
+FROM students;
+
+SELECT department, COUNT(amount_paid) AS transct_count
+FROM students
+GROUP BY department;
+
+SELECT department, admitted_at, SUM(amount_paid) total_amt
+FROM students
+GROUP BY department, admitted_at
+ORDER BY 2;
+
+SELECT admitted_at, SUM(amount_paid) total_amt
+FROM students
+GROUP BY admitted_at
+HAVING total_amt > 40000
+ORDER BY 1;
+
+SELECT department, COUNT(amount_paid) trnsct_count
+FROM students
+GROUP BY department
+HAVING trnsct_count > 2;
+
+
+SELECT department, admitted_at, SUM(amount_paid) total_amt
+FROM students
+GROUP BY department, admitted_at
+HAVING total_amt > 60000;
+
+
+SELECT department, admitted_at, SUM(amount_paid) total_amt
+FROM students
+WHERE admitted_at > '2015-09-01'
+GROUP BY department, admitted_at
+HAVING total_amt > 30000
+ORDER BY 3;
+  
+
+SELECT * FROM students;
+
+CREATE TABLE pupils (
+student_id INTEGER NOT NULL,
+name VARCHAR(55) NOT NULL,
+age INTEGER DEFAULT 18
+);
+
+SELECT * FROM pupils;
+
+INSERT INTO pupils VALUES (4, 'Pamela Thomas');
+
+
+
+
+
